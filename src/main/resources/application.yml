@@ -1,0 +1,10 @@
+spring:
+  jpa:
+    database: mysql
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shopping-noto?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: root
