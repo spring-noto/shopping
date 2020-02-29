@@ -33,4 +33,4 @@ out/
 
 
 ### local
-application-local.yml
+src/main/resources/application-local.yml
