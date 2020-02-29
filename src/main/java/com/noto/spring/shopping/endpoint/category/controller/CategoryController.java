@@ -1,4 +1,4 @@
-package com.noto.spring.shopping.category;
+package com.noto.spring.shopping.endpoint.category.controller;
 
 import org.springframework.stereotype.Controller;
 
