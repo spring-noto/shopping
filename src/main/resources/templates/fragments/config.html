@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:fragment="configFragment">
+  <meta charset="UTF-8" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>SSG Search Admin</title>
+
+  <!-- 공통으로 쓰이는 css파일을넣는다.-->
+  <link rel="shortcut icon" type="image/x-icon" href="https://sstatic.ssgcdn.com/ui/common/img/ssg.ico">
+
+  <!-- coreui local 경로를 사용하는경우 -->
+  <link rel="stylesheet" href="/static/node_modules/@coreui/coreui/dist/css/coreui.min.css">
+  <link rel="stylesheet" href="/static/node_modules/@coreui/icons/css/all.min.css">
+
+  <!-- 컨텐츠페이지의 CSS 영역이 들어감 -->
+  <th:block layout:fragment="css"></th:block>
+
+  <!-- 공통으로 쓰이는 css파일을넣는다.-->
+  <script src="/static/js/jquery-2.2.4.min.js"></script>
+  <!-- coreui local 경로를 사용하는경우 -->
+  <script src="/static/node_modules/@coreui/coreui/dist/js/coreui.bundle.min.js"></script>
+  <script defer src="/static/node_modules/@coreui/icons/js/svgxuse.min.js"></script>
+  <!-- coreui cdn 으로 사용할경우 아래를 적용
+  <script src="https://unpkg.com/@coreui/coreui@3.0.0-beta.1/dist/js/coreui.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui@3.0.0-beta.1/dist/css/coreui.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/@coreui/icons@1.0.0-beta.0/css/all.min.css">
+  -->
+  <script type='text/javascript' src='/static/js/core.js'></script>
+  <!-- 컨텐츠페이지의 스크립트 영역이 들어감 -->
+  <th:block layout:fragment="script"></th:block>
+</head>
+
+</html>

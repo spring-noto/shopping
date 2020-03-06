@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lagn="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+  <div id="grid"></div>
+  <head th:replace="fragments/config :: configFragment"></head>
+
+  <body class="c-app" style="font-size: 14px;">
+    <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
+      <div th:replace="fragments/sidebar :: sidebarFragment"></div>
+    </div>
+    <div class="c-wrapper">
+<header th:replace="fragments/header :: headerFragment"></header>
+<div layout:fragment="content" class="c-body"></div>
+</div>
+<footer th:replace="fragments/footer :: footerFragment"></footer>
+</body>
+</html>

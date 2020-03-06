@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
+
+<div th:fragment="sidebarFragment">
+  <ul class="c-sidebar-nav ps ps--active-y" data-drodpown-accordion="true">
+    <li class="c-sidebar-nav-item">
+      <a class="c-sidebar-nav-link" href="/"><i class="cil-home"></i><span> SSG SEARCH ADMIN </span></a>
+    </li>
+    <li class="c-sidebar-nav-dropdown">
+      <a class="c-sidebar-nav-dropdown-toggle" href="#"><i class="cil-applications"></i> <span>Service</span> </a>
+      <ul class="c-sidebar-nav-dropdown-items">
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/service/grid"><i class="cil-grid"></i> <span>Grid</span> </a></li>
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/service/chart"> <i class="cil-chart-line"></i> <span>Chart</span> </a></li>
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/dict"> <i class="cil-grid"></i> <span>Dictionary</span> </a></li>
+      </ul>
+    </li>
+    <li sec:authorize="hasRole('ROLE_ADMIN')" class="c-sidebar-nav-dropdown">
+      <a class="c-sidebar-nav-dropdown-toggle" href="#"><i class="cil-applications"></i> <span>Setting</span> </a>
+      <ul class="c-sidebar-nav-dropdown-items">
+        <li sec:authorize="hasRole('ROLE_ADMIN')" class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/setting/list"><i class="cil-grid"></i> <span>사용자 목록</span> </a></li>
+        <li sec:authorize="hasRole('ROLE_ADMIN')" class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/setting/apply"><i class="cil-grid"></i> <span>승인 대기</span> </a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+</html>

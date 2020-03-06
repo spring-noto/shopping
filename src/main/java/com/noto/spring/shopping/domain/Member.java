@@ -1,58 +1,34 @@
 package com.noto.spring.shopping.domain;
 
-import org.springframework.security.crypto.password.PasswordEncoder;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import lombok.Data;
 
+@Data
 @Entity
-public class Member {
+public class Member extends BaseEntity {
 
-    @Id
-    @GeneratedValue
-    private Integer id;
+  @Id
+  @NotBlank(message = "ID를 입력해주세요")
+  @Size(min = 6, max = 15, message = "ID는 6 ~ 15자 사이로 입력해주세요")
+  private String id;
 
-    @Column(unique = true)
-    private String userName;
+  @NotBlank(message = "비밀번호를 입력해주세요")
+  private String password;
 
-    private String password;
-    private String role;
+  @NotBlank(message = "이름을 입력해주세요")
+  private String name;
 
-    public Integer getId() {
-        return id;
-    }
+  @NotBlank(message = "이메일을 입력해주세요")
+  @Email(message = "이메일 형식을 맞춰주세요")
+  private String email;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  private String address;
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public void encodePassword(PasswordEncoder passwordEncoder) {
-        this.password = passwordEncoder.encode(password);
-    }
+  private int activation = 1;
 }
