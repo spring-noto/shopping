@@ -28,7 +28,8 @@ public class LoginAuthenticationProvider implements AuthenticationProvider {
 
     String userId = authentication.getName();
     String password = (String) authentication.getCredentials();
-
+    System.out.println(userId);
+    System.out.println(password);
     UserDetails userDetails;
     Collection<? extends GrantedAuthority> authorities;
     try {

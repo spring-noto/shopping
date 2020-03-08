@@ -1,17 +1,22 @@
 package com.noto.spring.shopping.domain;
 
+import lombok.Data;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.EntityListeners;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import lombok.Data;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
-public class Member extends BaseEntity {
+@EntityListeners(AuditingEntityListener.class) //auditing 기능 사용
+public class Member {
 
   @Id
   @NotBlank(message = "ID를 입력해주세요")
@@ -30,5 +35,11 @@ public class Member extends BaseEntity {
 
   private String address;
 
-  private int activation = 1;
+  private Boolean activation = true;
+
+  @CreatedDate
+  private LocalDateTime created_at;
+
+  @LastModifiedDate
+  private LocalDateTime updated_at;
 }
