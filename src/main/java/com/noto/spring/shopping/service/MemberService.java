@@ -34,7 +34,7 @@ public class MemberService implements UserDetailsService {
   public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
     Optional<Member> byUsername = memberRepository.findById(userId);
     Member member = byUsername.orElseThrow(() -> new UsernameNotFoundException("사용자 ID가 존재하지 않습니다."));
-    if (member.getActivation() == 0) {
+    if (member.getActivation() == false) {
       throw new UsernameNotFoundException(userId + " : 현재 휴먼계정입니다.");
     }
     List<GrantedAuthority> authorities = new ArrayList<>();

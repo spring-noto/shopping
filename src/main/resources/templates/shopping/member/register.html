@@ -18,16 +18,20 @@
         <div class="card mx-4">
           <div class="card-body p-4">
             <h1>Register</h1>
-            <p class="text-muted">SSG Search Admin 회원가입</p>
-            <form th:action="@{/account/registerProcessing}" th:object="${account}" method="post">
+            <p class="text-muted">회원가입</p>
+            <form th:action="@{/member/registerProcessing}" th:object="${member}" method="post">
             <div class="input-group mb-3">
               <div class="input-group-prepend"><span class="input-group-text"></span></div>
-              <input class="form-control" type="text" th:field="*{userId}" name="userId" placeholder="아이디" required="required"/>
+              <input class="form-control" type="text" th:field="*{id}" name="id" placeholder="아이디" required="required"/>
             </div>
               <div th:if="${param.error}">
                 계정이 중복됩니다
               </div>
-              <p class="text-muted" th:each="err : ${#fields.errors('userId')}" th:text="${err}" />
+              <p class="text-muted" th:each="err : ${#fields.errors('id')}" th:text="${err}" />
+            <div class="input-group mb-3">
+              <div class="input-group-prepend"><span class="input-group-text"></span></div>
+              <input class="form-control" type="text" th:field="*{name}" name="name" placeholder="이름을 입력해주세요" required="required"/>
+            </div>
             <div class="input-group mb-3">
               <div class="input-group-prepend"><span class="input-group-text"></span></div>
               <input class="form-control" type="text" th:field="*{email}" name="email" placeholder="yourId@ssg.com" required="required"/>
