@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/loginLayout">>
+
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+</th:block>
+
+<!-- index.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script">
+</th:block>
+<div layout:fragment="content">
+  <body class="c-app flex-row align-items-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card mx-4">
+          <div class="card-body p-4">
+            <div th:if="${param.register}">
+              <h1>회원가입 요청이 완료되었습니다.</h1>
+              <p class="text-muted">승인 후, 로그인이 가능합니다.</p>
+            </div>
+            <div th:if="${param.change}">
+            <h1>비밀번호가 변경되었습니다.</h1>
+            <p class="text-muted">변경된 비밀번호로 로그인해주세요.</p>
+          </div>
+          <button class="btn btn-block btn-success" type="button" onclick="top.window.close()"> 완료 </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+</div>
