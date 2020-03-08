@@ -12,7 +12,7 @@ import java.util.Optional;
 public class JpaConfig {
 
     @Bean("auditorProvider")
-    public AuditorAware<String> auditorPprovider() {
+    public AuditorAware<String> auditorProvider() {
         return () -> Optional.of("이영우");
     }
 }

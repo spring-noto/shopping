@@ -40,12 +40,12 @@ public class Category extends BaseEntity{
     @Column(nullable = false)
     private Boolean activation;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "parent_id")
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_id",insertable=false, updatable=false)
     @JsonBackReference
     private Category parent;
 
-    @OneToMany(mappedBy = "parent")
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JsonManagedReference
     private Set<Category> subCategories = new HashSet<>();
 

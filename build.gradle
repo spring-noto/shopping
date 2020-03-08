@@ -1,6 +1,7 @@
 plugins {
     id 'org.springframework.boot' version '2.2.5.RELEASE'
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
     id 'java'
 }
 
@@ -25,6 +26,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.3.0'
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+    implementation 'com.querydsl:querydsl-jpa'
+    implementation 'com.querydsl:querydsl-apt'
 
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'mysql:mysql-connector-java'
@@ -37,4 +40,17 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+// querydsl 적용
+def querydslSrcDir = 'src/main/generated'
+
+querydsl {
+    library = "com.querydsl:querydsl-apt"
+    jpa = true
+    querydslSourcesDir = querydslSrcDir
+}
+
+compileQuerydsl{
+    options.annotationProcessorPath = configurations.querydsl
 }
